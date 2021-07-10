@@ -1,0 +1,51 @@
+version: "3.5"
+
+
+services:
+
+  api:
+    depends_on:
+      - api-mongo
+      - api-redis
+#    image: api
+    build:
+      context: .
+    container_name: api
+    restart: unless-stopped
+#    environment:
+#      - MODE=production
+    ports:
+      - 127.0.0.1:4000:4000
+    volumes:
+      - /www/api:/www/api
+    networks:
+      - api
+
+
+  api-redis:
+    image: redis
+    container_name: api-redis
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:6379:6379
+    volumes:
+      - /databases/redis/api:/data
+    networks:
+      - api
+
+
+  api-mongo:
+    image: mongo
+    container_name: api-mongo
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:27017:27017
+    volumes:
+      - /databases/mongo/api:/data/db
+    networks:
+      - api
+
+
+networks:
+  api:
+    driver: bridge
