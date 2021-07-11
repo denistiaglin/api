@@ -2,5 +2,5 @@
   "watch": ["src"],
   "ext": "ts,json",
   "ignore": ["src/**/*.test.ts"],
-  "exec": "eslint ./src && tsc && node ./build/app.js"
+  "exec": "npm run build && eslint ./src && node ./build/app.js"
 }

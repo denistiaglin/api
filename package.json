@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "prod": "node ./build/app.js",
-    "build": "tsc --build",
+    "build": "tsc",
+    "prebuild": "rimraf build",
     "lint": "eslint ./src",
     "dev": "nodemon"
   },
@@ -19,6 +20,7 @@
     "@typescript-eslint/parser": "^4.28.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.30.0",
+    "rimraf": "^3.0.2",
     "nodemon": "^2.0.11"
   },
   "dependencies": {
