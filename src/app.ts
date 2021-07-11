@@ -5,6 +5,7 @@ import colors from 'colors'
 
 import apiRouter from './api'
 import { environment } from './environment'
+import swagger from './lib/swagger'
 
 const app = express()
 
@@ -16,6 +17,7 @@ const { PORT } = environment
 
 connection.then(() => {
   app.listen(PORT,() => {
+    swagger(app)
 
     // eslint-disable-next-line no-console
     console.log(
