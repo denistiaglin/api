@@ -12,7 +12,7 @@ services:
     container_name: api
     restart: unless-stopped
     environment:
-      - MODE=production
+      - MODE=sandbox
     ports:
       - 127.0.0.1:4000:4000
     volumes:

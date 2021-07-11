@@ -4,4 +4,4 @@
 #docker build -t api ./
 
 echo 'start all'
-docker-compose up -d --build
+docker-compose -f ./docker-compose.sandbox.yml up -d --build

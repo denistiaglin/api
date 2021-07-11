@@ -16,8 +16,6 @@ RUN npm run build
 
 FROM node:16-alpine
 
-ENV MODE=production
-
 WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/node_modules ./node_modules
